@@ -1,0 +1,1 @@
+print("Albert Einstein once said,\" The definition of insanity is doing something over and over again and expectng different results.\"")
