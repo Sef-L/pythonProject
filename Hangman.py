@@ -10,25 +10,25 @@ def display(correct_word, already_guessed):
     return answer
 old_guesses = []
 
-difficulty = input("Welcome to Hangman!\nWhat difficulty do you want to play?\nEasy (3-4 letter words)\nMedium (4-6 letter words)\nHard (5-7 letter words)\nInsane (7+ letter words)\nChoose Easy/Medium/Hard/Insane: ")
+difficulty = input("Welcome to Hangman!\nWhat difficulty do you want to play?\nEasy (3-4 letter words)\nMedium (4-6 letter words)\nHard (5-7 letter words)\nInsane (7+ letter words)\nChoose Easy/Medium/Hard/Insane: ").lower()
 WORDS_EASY = ("see", "fur", "oak", "cow", "hex", "ask", "hay", "fox", "hip", "eye", "raw", "lip", "god", "nut", "hot", "rest", "jail", "nail", "myth", "beer", "kill", "name", "edge", "drop", "home", "lamp", "maid", "desk", "leaf", "fear")
 WORDS_MEDIUM = ("stun", "firm", "gold", "will", "hour", "lake", "phew", "sure", "thor", "ouch", "ouija", "azure", "rural", "blank", "right", "leash", "dress", "medal", "woman", "cable", "bother", "polish", "social", "spirit", "kidnap", "kettle", "sailor", "scheme", "column", "string")
 WORDS_HARD = ("bullet", "layout", "coffee", "insure", "resign", "embryo", "middle", "virgin", "powder", "aspect", "equinox", "breathe", "diamond", "trouble", "popular", "harvest", "extract", "outline", "bracket", "century", "jelly", "staff", "blame", "proud", "chain", "tease", "arrow", "sense", "swell", "pupil")
 WORDS_INSANE = ("uniform", "justice", "subject", "country", "context", "omission", "position", "nonsense", "creation", "merchant", "vertical", "mosquito", "suitcase", "retailer", "abortion", "condition", "exclusive", "permanent", "fabricate", "unanimous", "establish", "invisible", "perforate", "sacrifice", "landscape", "prosecute", "undermine", "sentiment", "orchestra", "transform")
 
-if difficulty == "Easy":
+if difficulty == "easy":
     word = random.choice(WORDS_EASY)
     print("You have chosen easy mode.")
     lives = 10
-elif difficulty == "Medium":
+elif difficulty == "medium":
     word = random.choice(WORDS_MEDIUM)
     print("You have chosen medium mode.")
     lives = 8
-elif difficulty == "Hard":
+elif difficulty == "hard":
     word = random.choice(WORDS_HARD)
     print("You have chosen hard mode.")
     lives = 6
-elif difficulty == "Insane":
+elif difficulty == "insane":
     word = random.choice(WORDS_INSANE)
     print("You have chosen insane mode.")
     lives = 5
