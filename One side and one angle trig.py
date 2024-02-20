@@ -9,7 +9,7 @@ def x_num(side_value, angle, operation):
     return answer
 while loop == 1:
     angle_given = float(input("What angle do you have?: "))
-    side_given_value = float(input("What is the length of the 75side you have?: "))
+    side_given_value = float(input("What is the length of the side you have?: "))
     side_given = int(input("What side do you have relative to the angle given?\n1 - Hypotenuse\n2 - Adjacent\n3 - Opposite\nChoose 1/2/3: "))
     looking_for = int(input("What side are you looking for relative to the angle given?\n1 - Hypotenuse\n2 - Adjacent\n3 - Opposite\nChoose 1/2/3: "))
 
