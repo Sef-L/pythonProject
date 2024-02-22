@@ -99,3 +99,5 @@ if lives == 0:
     # MORE ANNOTATIONS
     # MAKE PRETTY
     # VIDEO IS FOR SHOWING THE CODE WORKS
+    #Main function
+    #Menu function
