@@ -27,32 +27,44 @@ WORDS_HARD = ("bullet", "layout", "coffee", "insure", "resign", "embryo", "middl
 WORDS_INSANE = ("uniform", "justice", "subject", "country", "context", "omission", "position", "nonsense", "creation", "merchant", "vertical", "mosquito", "suitcase", "retailer", "abortion", "condition", "exclusive", "permanent", "fabricate", "unanimous", "establish", "invisible", "perforate", "sacrifice", "landscape", "prosecute", "undermine", "sentiment", "orchestra", "transform")
 
 # Depending on the difficulty previously randomly choose a word from the corresponding list and set up their live count.
-if difficulty == "easy":
-    word = random.choice(WORDS_EASY)
-    print("You have chosen easy mode.")
-    lives = 10
-elif difficulty == "medium":
-    word = random.choice(WORDS_MEDIUM)
-    print("You have chosen medium mode.")
-    lives = 8
-elif difficulty == "hard":
-    word = random.choice(WORDS_HARD)
-    print("You have chosen hard mode.")
-    lives = 6
-elif difficulty == "insane":
-    word = random.choice(WORDS_INSANE)
-    print("You have chosen insane mode.")
-    lives = 5
-else:
-    print("That is not a valid difficulty.")
-    word = "baddie"
-    lives = 0
+def difficulty_selection(difficulty):
+    if difficulty == "easy":
+        print("You have chosen easy mode.")
+        word = random.choice(WORDS_EASY)
+    elif difficulty == "medium":
+        print("You have chosen medium mode.")
+        word = random.choice(WORDS_MEDIUM)
+    elif difficulty == "hard":
+        print("You have chosen hard mode.")
+        word = random.choice(WORDS_HARD)
+    elif difficulty == "insane":
+        print("You have chosen insane mode.")
+        word = random.choice(WORDS_INSANE)
+    else:
+        print("That is not a valid difficulty.")
+        word = "baddie"
+    return word
+
+hangman = difficulty_selection(difficulty)
+
+def life_setting(difficulty):
+    if difficulty == "easy":
+        life_count = 10
+    elif difficulty == "medium":
+        life_count = 8
+    elif difficulty == "hard":
+        life_count = 7
+    elif difficulty == "insane":
+        life_count = 5
+    return life_count
+
+lives = life_setting(difficulty)
 
 # While lives are not 0 use the display_word word function.
 # With the randomly selected word and the 'old_guesses' list.
 # Display the amount of lives remaining.
 while lives != 0:
-    print("\n\n", (display(word, old_guesses)))
+    print("\n\n", (display(hangman, old_guesses)))
     print("\nYou have", lives, "lives left.")
 
     # Display the list of letters already guessed.
@@ -62,7 +74,7 @@ while lives != 0:
 
     # Check if that guess is 1 letter long, is in the english alphabet and isn't in the 'old_guesses' list.
     # if not restart the loop and tell them what they did wrong.
-    if len(guess) != 1 or not guess.isalpha():
+    if len(guess) != 1 or not guess.isalpha():  # .isalpha checks if the variable before the period is in the english alphabet.
         print("That guess in not correct, please try to input a single letter.")
         continue
     elif guess in old_guesses:
@@ -70,14 +82,20 @@ while lives != 0:
         continue
 
     old_guesses.append(guess)
-    if guess not in word:
+    if guess not in hangman:
         lives -= 1
         print("You have", lives, "lives left.")
     else:
         print("That letter is in the word")
-    word_display = display(word, old_guesses)
+    word_display = display(hangman, old_guesses)
     if "_" not in word_display:
-        print("\n\nCongratulations! You guessed the word:", word)
+        print("\n\nCongratulations! You guessed the word:", hangman)
         break
 if lives == 0:
-    print("Sorry, you lost. The word was:", word)
+    print("Sorry, you lost. The word was:", hangman)
+
+
+    # FUNCTIONS
+    # MORE ANNOTATIONS
+    # MAKE PRETTY
+    # VIDEO IS FOR SHOWING THE CODE WORKS
